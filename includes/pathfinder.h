@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 20:51:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/14 21:05:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ enum	e_dimensions
 	WIDTH
 };
 
-int		pf_solve(char **inputs);
+int		pf_solve(char const *file);
 int		pf_check_map(char *map, size_t dim[2]);
 char	*pf_get_map(char const *file);
 char	*pf_strjoin(char const *s1, char const *s2);

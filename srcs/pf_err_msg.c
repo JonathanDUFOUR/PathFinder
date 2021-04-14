@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:54:50 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 20:59:55 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/14 21:09:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	pf_err_msg(int errCode)
 			printw("Error: Arguments count is invalid.");
 		attroff(COLOR_PAIR(ERR_MSG_COLOR));
 	}
+	pf_pause();
 }
