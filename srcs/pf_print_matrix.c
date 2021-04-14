@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_solve.c                                         :+:      :+:    :+:   */
+/*   pf_print_matrix.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 23:33:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 21:44:04 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/14 21:36:38 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/14 21:47:02 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <ncurses.h>
 #include "pathfinder.h"
 
-int	pf_solve(char const *file)
+void	pf_print_matrix(int *matrix, size_t dim[2])
 {
-	char		*map;
-	int			*matrix;
-	size_t		dim[2];
+	size_t	i;
+	size_t	j;
 
-	map = pf_get_map(file);
-	if (!map || pf_check_map(map, dim) != SUCCESS)
-		return (MAP_ERR_CODE);
-	pf_print_map(map);
-	pf_print_dim(dim);
-	pf_pause();
-	matrix = pf_get_matrix(map, dim);
-	pf_print_matrix(matrix, dim);
-	pf_pause();
-	erase();
-	free(map);
-	free(matrix);
-	return (SUCCESS);
+	i = 0;
+	while (i < dim[HEIGHT])
+	{
+		j = 0;
+		while (j < dim[WIDTH])
+		{
+			mvprintw(dim[HEIGHT] + i + 2, (j * 3), "%d", matrix[i * dim[WIDTH] + j]);
+			++j;
+		}
+		++i;
+	}
+	refresh();
 }

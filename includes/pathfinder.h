@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 21:05:07 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/14 21:42:45 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ enum	e_lements
 	OBSTACLE,
 	EMPTY,
 	PATH,
-	TRUE_PATH,
-	ERR_MSG
+	TRUE_PATH
 };
 
 enum	e_dimensions
@@ -66,6 +65,7 @@ enum	e_dimensions
 
 int		pf_solve(char const *file);
 int		pf_check_map(char *map, size_t dim[2]);
+int		*pf_get_matrix(char *map, size_t dim[2]);
 char	*pf_get_map(char const *file);
 char	*pf_strjoin(char const *s1, char const *s2);
 char	*pf_strdup(char const *s);
@@ -76,6 +76,7 @@ void	pf_putendl(char const *s, int const fd);
 void	pf_err_msg(int errCode);
 void	pf_print_map(char *map);
 void	pf_print_dim(size_t dim[2]);
+void	pf_print_matrix(int *matrix, size_t dim[2]);
 void	pf_wait_quit(void);
 size_t	pf_strlen(char const *s);
 
