@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_putendl.c                                       :+:      :+:    :+:   */
+/*   pf_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 23:00:42 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/07 23:25:51 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/14 18:19:45 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/14 19:00:43 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "pathfinder.h"
 
-void	pf_putendl(char const *s, int const fd)
+int	pf_check_map(char *map, size_t dim[2])
 {
-	write(fd, s, pf_strlen(s));
-	write(fd, "\n", 1);
+	register char	*p;
+
+	dim[HEIGHT] = 0;
+	dim[WIDTH] = 0;
+	p = map;
+	while (*map)
+	{
+		while (*p && *p != '\n')
+			++p;
+		if (!(dim[WIDTH]))
+			dim[WIDTH] = p - map;
+		else if (dim[WIDTH] != (size_t)(p - map))
+			return (MAP_ERR_CODE);
+		map = ++p;
+		++(dim[HEIGHT]);
+	}
+	return (SUCCESS);
 }

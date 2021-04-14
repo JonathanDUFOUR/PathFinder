@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 22:36:42 by jodufour          #+#    #+#              #
-#    Updated: 2021/04/13 09:02:48 by jodufour         ###   ########.fr        #
+#    Updated: 2021/04/14 20:40:22 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,11 @@ SRCS	=	\
 			pf_strdup.c			\
 			pf_strjoin.c		\
 			pf_err_msg.c		\
-			pf_putendl.c		\
 			pf_get_map.c		\
 			pf_wait_quit.c		\
-			pf_print_map.c
+			pf_print_map.c		\
+			pf_print_dim.c		\
+			pf_check_map.c
 
 OBJS	:=	${SRCS:.c=.o}
 OBJS	:=	${addprefix ${OBJD}, ${OBJS}}

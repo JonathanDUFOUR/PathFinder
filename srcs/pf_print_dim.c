@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_solve.c                                         :+:      :+:    :+:   */
+/*   pf_print_dim.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 23:33:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 20:06:50 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/14 19:56:45 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/14 20:38:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <ncurses.h>
+#include <stdlib.h>
+#include <sys/types.h>
 #include "pathfinder.h"
 
-int	pf_solve(char **inputs)
+void	pf_print_dim(size_t dim[2])
 {
-	char		*map;
-	int			*matrix;
-	size_t		dim[2];
-
-	while (*inputs)
-	{
-		map = pf_get_map(*inputs);
-		if (!map || pf_check_map(map, dim) != SUCCESS)
-			return (MAP_ERR_CODE);
-		erase();
-		pf_print_map(map);
-		pf_print_dim(dim);
-		refresh();
-		free(map);
-		++inputs;
-		pf_pause();
-	}
-	return (SUCCESS);
+	printw("\nHEIGHT == %lu", dim[HEIGHT]);
+	printw("\nWIDTH  == %lu", dim[WIDTH]);
 }
