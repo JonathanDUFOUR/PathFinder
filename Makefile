@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 22:36:42 by jodufour          #+#    #+#              #
-#    Updated: 2021/04/14 20:40:22 by jodufour         ###   ########.fr        #
+#    Updated: 2021/04/14 20:52:52 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS	=	\
 			pf_pause.c			\
 			pf_strlen.c			\
 			pf_strdup.c			\
+			pf_strchr.c			\
 			pf_strjoin.c		\
 			pf_err_msg.c		\
 			pf_get_map.c		\

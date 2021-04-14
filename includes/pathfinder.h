@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 20:40:13 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/14 20:51:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int		pf_check_map(char *map, size_t dim[2]);
 char	*pf_get_map(char const *file);
 char	*pf_strjoin(char const *s1, char const *s2);
 char	*pf_strdup(char const *s);
+char	*pf_strchr(char const *s, char c);
 void	pf_setup(void);
 void	pf_pause(void);
 void	pf_putendl(char const *s, int const fd);

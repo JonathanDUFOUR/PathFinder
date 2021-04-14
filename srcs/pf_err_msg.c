@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:54:50 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 08:39:44 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/14 20:59:55 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	pf_err_msg(int errCode)
 		printw("Error: colors are not supported on your terminal");
 	else
 	{
-		attron(COLOR_PAIR(ERR_MSG));
+		attron(COLOR_PAIR(ERR_MSG_COLOR));
 		if (errCode == MAP_ERR_CODE)
 			printw("Error: map error");
 		else if (errCode == AC_ERR_CODE)
 			printw("Error: Arguments count is invalid.");
-		attroff(COLOR_PAIR(ERR_MSG));
+		attroff(COLOR_PAIR(ERR_MSG_COLOR));
 	}
 }
