@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:20:23 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 21:34:15 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/14 22:03:32 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,29 @@
 
 int	*pf_get_matrix(char *map, size_t dim[2])
 {
-	int	*matrix;
-	size_t	i;
-	size_t	j;
+	int		*matrix;
+	size_t	i[2];
 
-	matrix = malloc (dim[HEIGHT] * dim[WIDTH] * sizeof(int));
+	matrix = malloc (dim[H] * dim[W] * sizeof(int));
 	if (!matrix)
 		return (NULL);
-	i = 0;
-	while (i < dim[HEIGHT])
+	i[H] = 0;
+	while (i[H] < dim[H])
 	{
-		j = 0;
-		while (j < dim[WIDTH])
+		i[W] = 0;
+		while (i[W] < dim[W])
 		{
-			if (map[i * dim[WIDTH] + i + j] == MAP_CHARS[START])
-				matrix[(i * dim[WIDTH]) + j] = -1;
-			else if (map[i * dim[WIDTH] + i + j] == MAP_CHARS[END])
-				matrix[(i * dim[WIDTH]) + j] = -2;
-			else if (map[i * dim[WIDTH] + i + j] == MAP_CHARS[OBSTACLE])
-				matrix[(i * dim[WIDTH]) + j] = -3;
-			else if (map[i * dim[WIDTH] + i + j] == MAP_CHARS[EMPTY])
-				matrix[(i * dim[WIDTH]) + j] = 0;
-			++j;
+			if (map[i[H] * dim[W] + i[H] + i[W]] == MAP_CHARS[START])
+				matrix[(i[H] * dim[W]) + i[W]] = -1;
+			else if (map[i[H] * dim[W] + i[H] + i[W]] == MAP_CHARS[END])
+				matrix[(i[H] * dim[W]) + i[W]] = -2;
+			else if (map[i[H] * dim[W] + i[H] + i[W]] == MAP_CHARS[OBSTACLE])
+				matrix[(i[H] * dim[W]) + i[W]] = -3;
+			else if (map[i[H] * dim[W] + i[H] + i[W]] == MAP_CHARS[EMPTY])
+				matrix[(i[H] * dim[W]) + i[W]] = 0;
+			++i[W];
 		}
-		++i;
+		++i[H];
 	}
 	return (matrix);
 }

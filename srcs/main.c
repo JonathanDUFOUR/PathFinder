@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:38:20 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 21:07:24 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/14 22:05:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int ac, char **av)
 	{
 		pf_setup();
 		if (ac > 1)
+		{
 			while (ac - 1)
 			{
 				ret = pf_solve(*(++av));
@@ -29,6 +30,7 @@ int	main(int ac, char **av)
 					pf_err_msg(ret);
 				--ac;
 			}
+		}
 		else
 			pf_err_msg(AC_ERR_CODE);
 	}

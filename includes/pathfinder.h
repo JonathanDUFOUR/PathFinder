@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 21:42:45 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/14 22:01:36 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ enum	e_lements
 
 enum	e_dimensions
 {
-	HEIGHT,
-	WIDTH
+	H,
+	W
 };
 
 int		pf_solve(char const *file);
