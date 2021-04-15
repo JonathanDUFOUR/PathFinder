@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_print_dim.c                                     :+:      :+:    :+:   */
+/*   pf_calc_middle_ngb.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 19:56:45 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/15 22:41:58 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/15 21:12:51 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/15 23:12:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ncurses.h>
 #include "pathfinder.h"
 
-void	pf_print_dim(uint32_t dim[2])
+void	pf_calc_middle_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3])
 {
-	printw("HEIGHT == %u\n", dim[H]);
-	printw("WIDTH  == %u\n", dim[W]);
-	refresh();
+	if (!(matrix[idx[I_LOW] - dim[W]]))
+		pf_calc_t_ngb(matrix, dim, idx);
+	if (!(matrix[idx[I_LOW] + dim[W]]))
+		pf_calc_b_ngb(matrix, dim, idx);
+	if (!(matrix[idx[I_LOW] - 1]))
+		pf_calc_l_ngb(matrix, dim, idx);
+	if (!(matrix[idx[I_LOW] + 1]))
+		pf_calc_r_ngb(matrix, dim, idx);
+	printw("Calculated the neighbours for a middle cell\n");
 }

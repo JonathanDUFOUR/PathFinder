@@ -6,11 +6,10 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:54:50 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 21:09:07 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/15 19:54:02 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <ncurses.h>
 #include "pathfinder.h"
 

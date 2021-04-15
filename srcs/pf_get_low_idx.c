@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_pause.c                                         :+:      :+:    :+:   */
+/*   pf_get_low_idx.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 08:43:00 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/15 22:40:57 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/15 21:59:37 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/15 22:27:22 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ncurses.h>
+#include "pathfinder.h"
 
-void	pf_pause(void)
+uint32_t	pf_get_low_idx(int *matrix, uint32_t dim[2])
 {
-	int	ch;
+	uint32_t	idx;
+	uint32_t	i;
 
-	printw("Paused, press C to continue\n");
-	while (1)
+	idx = 0;
+	i = 0;
+	while (i < (dim[H] * dim[W]))
 	{
-		ch = getch();
-		if (ch == 'c' || ch == 'C')
-			break ;
+		if (matrix[i] > 0)
+		{
+			if (!idx || (matrix[i] < matrix[idx]))
+				idx = i;
+		}
+		++i;
 	}
-	refresh();
+	return (idx);
 }

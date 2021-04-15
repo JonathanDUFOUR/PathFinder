@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_pause.c                                         :+:      :+:    :+:   */
+/*   pf_get_start_idx.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 08:43:00 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/15 22:40:57 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/14 22:31:54 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/15 22:03:06 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ncurses.h>
+#include "pathfinder.h"
 
-void	pf_pause(void)
+uint32_t	pf_get_start_idx(int *matrix)
 {
-	int	ch;
+	int const	*start = matrix;
 
-	printw("Paused, press C to continue\n");
-	while (1)
-	{
-		ch = getch();
-		if (ch == 'c' || ch == 'C')
-			break ;
-	}
-	refresh();
+	while (*start != M_START)
+		++start;
+	return (start - matrix);
 }

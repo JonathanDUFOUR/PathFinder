@@ -6,17 +6,17 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:20:23 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 22:03:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/15 22:26:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "pathfinder.h"
 
-int	*pf_get_matrix(char *map, size_t dim[2])
+int	*pf_get_matrix(char *map, uint32_t dim[2])
 {
-	int		*matrix;
-	size_t	i[2];
+	int			*matrix;
+	uint32_t	i[2];
 
 	matrix = malloc (dim[H] * dim[W] * sizeof(int));
 	if (!matrix)

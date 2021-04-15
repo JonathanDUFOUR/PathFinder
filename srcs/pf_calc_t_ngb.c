@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_print_dim.c                                     :+:      :+:    :+:   */
+/*   pf_calc_t_ngb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 19:56:45 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/15 22:41:58 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/15 21:32:53 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/15 23:01:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ncurses.h>
 #include "pathfinder.h"
 
-void	pf_print_dim(uint32_t dim[2])
+void	pf_calc_t_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3])
 {
-	printw("HEIGHT == %u\n", dim[H]);
-	printw("WIDTH  == %u\n", dim[W]);
-	refresh();
+	int	s_dist;
+	int	e_dist;
+
+	s_dist = pf_calc_dist(dim, idx[I_START], idx[I_LOW] - dim[W]);
+	printw("s_dist for matrix[%u] == %d\n", idx[I_LOW] - dim[W], s_dist);
+	e_dist = pf_calc_dist(dim, idx[I_END], idx[I_LOW] - dim[W]);
+	printw("e_dist for matrix[%u] == %d\n", idx[I_LOW] - dim[W], e_dist);
+	matrix[idx[I_LOW] - dim[W]] = s_dist + e_dist;
 }

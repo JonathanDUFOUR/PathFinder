@@ -6,13 +6,12 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 23:57:20 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 18:16:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/15 19:54:33 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "pathfinder.h"

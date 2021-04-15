@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:19:45 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/14 22:03:57 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/15 19:48:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinder.h"
 
-int	pf_check_map(char *map, size_t dim[2])
+int	pf_check_map(char *map, uint32_t dim[2])
 {
 	register char	*p;
 
@@ -26,7 +26,7 @@ int	pf_check_map(char *map, size_t dim[2])
 				return (MAP_ERR_CODE);
 		if (!(dim[W]))
 			dim[W] = p - map;
-		else if (dim[W] != (size_t)(p - map))
+		else if (dim[W] != (p - map))
 			return (MAP_ERR_CODE);
 		map = ++p;
 		++(dim[H]);
