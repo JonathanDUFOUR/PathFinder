@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 22:36:42 by jodufour          #+#    #+#              #
-#    Updated: 2021/04/16 20:22:08 by jodufour         ###   ########.fr        #
+#    Updated: 2021/04/16 22:37:02 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS	=	\
 			pf_lst_new.c			\
 			pf_lst_free.c			\
 			pf_calc_ngb.c			\
+			pf_get_path.c			\
 			pf_calc_dist.c			\
 			pf_str_rm_ws.c			\
 			pf_wait_quit.c			\
