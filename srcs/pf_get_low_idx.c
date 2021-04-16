@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 21:59:37 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 20:08:15 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/16 22:00:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,18 @@
 
 uint32_t	pf_get_low_idx(int *matrix, t_cell_lst *options)
 {
-	return (42);
+	uint32_t	l_idx;
+
+	if (options)
+	{
+		l_idx = options->idx;
+		options = options->next;
+		while (options)
+		{
+			if (matrix[options->idx] < matrix[l_idx])
+				l_idx = options->idx;
+			options = options->next;
+		}
+	}
+	return (l_idx);
 }
