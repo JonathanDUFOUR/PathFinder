@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_get_end_idx.c                                   :+:      :+:    :+:   */
+/*   pf_lst_add_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 22:50:17 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/15 22:55:36 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/16 11:17:03 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/16 14:26:10 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinder.h"
+#include <stdlib.h>
 
-uint32_t	pf_get_end_idx(int *matrix)
+t_path	*pf_lst_add_back(t_path *path, uint32_t idx)
 {
-	int const	*end = matrix;
+	t_path	*back;
+	t_path	*p;
 
-	while (*end != M_END)
-		++end;
-	return (end - matrix);
+	back = pf_lst_new(idx);
+	if (!back)
+		return (NULL);
+	p = path;
+	while (p->next)
+		p = p->next;
+	p->next = back;
+	return (path);
 }

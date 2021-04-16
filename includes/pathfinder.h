@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 10:48:27 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/16 15:54:33 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,6 @@ enum	e_lements
 	TRUE_PATH
 };
 
-enum	e_matrix_values
-{
-	M_OBSTACLE = -3,
-	M_END,
-	M_START,
-	M_EMPTY
-};
-
 enum	e_dimensions
 {
 	H,
@@ -75,21 +67,32 @@ enum	e_index
 	I_LOW
 };
 
+typedef struct s_path	t_path;
+
+struct	s_path
+{
+	uint32_t	idx;
+	int			value;
+	t_path		*next;
+};
+
 int			pf_solve(char const *file);
 int			pf_check_map(char *map, uint32_t dim[2]);
-int			*pf_get_matrix(char *map, uint32_t dim[2]);
+int			*pf_get_matrix(char *map, uint32_t dim[2], uint32_t idx[3]);
 int			pf_calc_dist(uint32_t dim[2], uint32_t idx1, uint32_t idx2);
 char		*pf_get_map(char const *file);
 char		*pf_strjoin(char const *s1, char const *s2);
 char		*pf_strdup(char const *s);
 char		*pf_strchr(char const *s, char c);
+char		*pf_str_rm_ws(char const *s);
 void		pf_setup(void);
 void		pf_pause(void);
 void		pf_err_msg(int errCode);
 void		pf_print_map(char *map);
 void		pf_print_dim(uint32_t dim[2]);
-void		pf_print_matrix(int *matrix, uint32_t dim[2]);
-void		pf_manage_matrix(int *matrix, uint32_t dim[2]);
+void		pf_print_new_map(char *map);
+void		pf_print_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3]);
+void		pf_manage_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3]);
 void		pf_calc_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
 void		pf_calc_corn_tl_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
 void		pf_calc_corn_tr_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
@@ -105,9 +108,9 @@ void		pf_calc_b_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
 void		pf_calc_l_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
 void		pf_calc_r_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
 void		pf_wait_quit(void);
+t_path		*pf_lst_new(uint32_t idx);
+t_path		*pf_lst_add_back(t_path *lst, uint32_t idx);
 size_t		pf_strlen(char const *s);
-uint32_t	pf_get_end_idx(int *matrix);
-uint32_t	pf_get_start_idx(int *matrix);
-uint32_t	pf_get_low_idx(int *matrix, uint32_t dim[2]);
+uint32_t	pf_get_low_idx(t_path *lst);
 
 #endif

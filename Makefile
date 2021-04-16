@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 22:36:42 by jodufour          #+#    #+#              #
-#    Updated: 2021/04/15 22:24:26 by jodufour         ###   ########.fr        #
+#    Updated: 2021/04/16 15:53:39 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,10 @@ SRCS	=	\
 			pf_strjoin.c			\
 			pf_err_msg.c			\
 			pf_get_map.c			\
+			pf_lst_new.c			\
 			pf_calc_ngb.c			\
 			pf_calc_dist.c			\
+			pf_str_rm_ws.c			\
 			pf_wait_quit.c			\
 			pf_print_map.c			\
 			pf_print_dim.c			\
@@ -42,11 +44,11 @@ SRCS	=	\
 			pf_calc_l_ngb.c			\
 			pf_calc_r_ngb.c			\
 			pf_get_matrix.c			\
-			pf_get_end_idx.c		\
 			pf_get_low_idx.c		\
+			pf_lst_add_back.c		\
 			pf_print_matrix.c		\
+			pf_print_new_map.c		\
 			pf_manage_matrix.c		\
-			pf_get_start_idx.c		\
 			pf_calc_edge_ngb.c		\
 			pf_calc_corn_ngb.c		\
 			pf_calc_middle_ngb.c
