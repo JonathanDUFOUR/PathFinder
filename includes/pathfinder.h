@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 15:54:33 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/16 20:21:21 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ enum	e_colors
 	END_COLOR,
 	OBSTACLE_COLOR,
 	EMPTY_COLOR,
+	OPTIONS_COLOR,
 	PATH_COLOR,
 	FIND_COLOR,
 	ERR_MSG_COLOR
@@ -67,13 +68,12 @@ enum	e_index
 	I_LOW
 };
 
-typedef struct s_path	t_path;
+typedef struct s_cell_lst	t_cell_lst;
 
-struct	s_path
+struct	s_cell_lst
 {
 	uint32_t	idx;
-	int			value;
-	t_path		*next;
+	t_cell_lst	*next;
 };
 
 int			pf_solve(char const *file);
@@ -91,26 +91,43 @@ void		pf_err_msg(int errCode);
 void		pf_print_map(char *map);
 void		pf_print_dim(uint32_t dim[2]);
 void		pf_print_new_map(char *map);
-void		pf_print_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3]);
 void		pf_manage_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_corn_tl_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_corn_tr_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_corn_bl_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_corn_br_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_edge_t_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_edge_b_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_edge_r_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_edge_l_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_middle_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_t_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_b_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_l_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
-void		pf_calc_r_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3]);
+void		pf_print_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_corn_tl_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_corn_tr_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_corn_bl_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_corn_br_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_edge_t_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_edge_b_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_edge_r_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_edge_l_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_middle_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_t_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_b_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_l_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_calc_r_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				t_cell_lst *options);
+void		pf_lst_free(t_cell_lst *lst);
 void		pf_wait_quit(void);
-t_path		*pf_lst_new(uint32_t idx);
-t_path		*pf_lst_add_back(t_path *lst, uint32_t idx);
 size_t		pf_strlen(char const *s);
-uint32_t	pf_get_low_idx(t_path *lst);
+uint32_t	pf_get_low_idx(int *matrix, t_cell_lst *lst);
+t_cell_lst	*pf_lst_new(uint32_t idx);
+t_cell_lst	*pf_lst_add_back(t_cell_lst *lst, uint32_t idx);
+t_cell_lst	*pf_lst_del_one(t_cell_lst *lst, uint32_t idx);
 
 #endif

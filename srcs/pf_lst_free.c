@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_lst_new.c                                       :+:      :+:    :+:   */
+/*   pf_lst_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/16 11:05:05 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 19:00:24 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/16 19:22:17 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/16 19:24:10 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pathfinder.h"
 #include <stdlib.h>
+#include "pathfinder.h"
 
-t_cell_lst	*pf_lst_new(uint32_t idx)
+void	pf_lst_free(t_cell_lst *lst)
 {
-	t_cell_lst	*output;
+	t_cell_lst	*dent;
 
-	output = malloc(1 * sizeof(t_cell_lst));
-	if (!output)
-		return (NULL);
-	output->idx = idx;
-	output->next = NULL;
-	return (output);
+	while (lst)
+	{
+		dent = lst;
+		lst = lst->next;
+		free(dent);
+	}
 }

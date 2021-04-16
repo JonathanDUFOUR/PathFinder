@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 23:33:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 15:55:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:32:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	pf_solve(char const *file)
 	pf_print_new_map(map);
 	pf_pause();
 	matrix = pf_get_matrix(map, dim, idx);
-	pf_print_matrix(matrix, dim, idx);
+	pf_print_matrix(matrix, dim, idx, NULL);
 	pf_pause();
 	pf_manage_matrix(matrix, dim, idx);
 	erase();

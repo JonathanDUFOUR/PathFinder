@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 00:32:40 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 15:32:26 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:04:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	pf_print_start(char **map)
 	attron(COLOR_PAIR(START_COLOR));
 	while (**map == MAP_CHARS[START])
 	{
-		printw("%c ", MAP_CHARS[START]);
+		printw("% *c", 2, MAP_CHARS[START]);
 		++(*map);
 	}
 	attroff(COLOR_PAIR(START_COLOR));
@@ -29,7 +29,7 @@ static void	pf_print_end(char **map)
 	attron(COLOR_PAIR(END_COLOR));
 	while (**map == MAP_CHARS[END])
 	{
-		printw("%c ", MAP_CHARS[END]);
+		printw("% *c", 2, MAP_CHARS[END]);
 		++(*map);
 	}
 	attroff(COLOR_PAIR(END_COLOR));
@@ -40,7 +40,7 @@ static void	pf_print_obstacles(char **map)
 	attron(COLOR_PAIR(OBSTACLE_COLOR));
 	while (**map == MAP_CHARS[OBSTACLE])
 	{
-		printw("%c ", MAP_CHARS[OBSTACLE]);
+		printw("% *c", 2, MAP_CHARS[OBSTACLE]);
 		++(*map);
 	}
 	attroff(COLOR_PAIR(OBSTACLE_COLOR));
@@ -51,7 +51,7 @@ static void	pf_print_empty(char **map)
 	attron(COLOR_PAIR(EMPTY_COLOR));
 	while (**map == MAP_CHARS[EMPTY])
 	{
-		printw("%c ", MAP_CHARS[EMPTY]);
+		printw("% *c", 2, MAP_CHARS[EMPTY]);
 		++(*map);
 	}
 	attroff(COLOR_PAIR(EMPTY_COLOR));
