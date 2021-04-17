@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/17 20:02:31 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/17 22:39:13 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,37 +92,39 @@ void		pf_err_msg(int errCode);
 void		pf_print_map(char *map);
 void		pf_print_dim(uint32_t dim[2]);
 void		pf_print_new_map(char *map);
-void		pf_manage_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3]);
+void		pf_print_parents(uint32_t *parents, uint32_t dim[2]);
 void		pf_print_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
 				t_cell_lst *options);
+void		pf_manage_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				uint32_t *parents);
 void		pf_calc_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_corn_tl_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_corn_tr_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_corn_bl_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_corn_br_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_edge_t_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_edge_b_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_edge_r_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_edge_l_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_middle_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_t_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_b_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_l_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_r_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				t_cell_lst **options);
+				t_cell_lst **options, uint32_t *parents);
 void		pf_lst_free(t_cell_lst *lst);
 void		pf_wait_quit(void);
 bool		pf_lst_is_in_list(t_cell_lst *lst, uint32_t idx);

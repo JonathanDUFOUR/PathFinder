@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:05:05 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 19:00:24 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/17 20:30:54 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 t_cell_lst	*pf_lst_new(uint32_t idx)
 {
-	t_cell_lst	*output;
+	t_cell_lst	*lst;
 
-	output = malloc(1 * sizeof(t_cell_lst));
-	if (!output)
+	lst = malloc(sizeof(t_cell_lst));
+	if (!lst)
 		return (NULL);
-	output->idx = idx;
-	output->next = NULL;
-	return (output);
+	lst->idx = idx;
+	lst->next = NULL;
+	return (lst);
 }

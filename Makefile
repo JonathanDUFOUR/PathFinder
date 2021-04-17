@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 22:36:42 by jodufour          #+#    #+#              #
-#    Updated: 2021/04/17 19:31:17 by jodufour         ###   ########.fr        #
+#    Updated: 2021/04/17 22:22:26 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRCS	=	\
 			pf_lst_del_one.c		\
 			pf_lst_add_back.c		\
 			pf_print_matrix.c		\
+			pf_print_parents.c		\
 			pf_print_new_map.c		\
 			pf_manage_matrix.c		\
 			pf_calc_edge_ngb.c		\
