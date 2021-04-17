@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 23:33:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/17 22:24:31 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 00:24:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	pf_solve(char const *file)
 	pf_pause();
 	map = pf_str_rm_ws(map);
 	matrix = pf_get_matrix(map, dim, idx);
-	pf_print_matrix(matrix, dim, idx, NULL);
+	pf_print_matrix(matrix, dim, idx, NULL, NULL);
 	pf_pause();
 	parents = calloc(dim[H] * dim[W], sizeof(uint32_t));
 	if (!parents)
