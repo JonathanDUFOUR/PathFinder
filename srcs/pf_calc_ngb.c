@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 22:55:59 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 19:13:08 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/17 20:09:28 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 #include "pathfinder.h"
 
 void	pf_calc_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-t_cell_lst *options)
+t_cell_lst **options)
 {
 	uint32_t	x;
 	uint32_t	y;
 
-	printw("Calculating neighbours of the cell at the index %u\n", idx[I_LOW]);
 	x = idx[I_LOW] / dim[W];
 	y = idx[I_LOW] % dim[W];
 	if (!x && !y)

@@ -6,18 +6,12 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:20:23 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 16:19:19 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/17 17:11:25 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "pathfinder.h"
-
-static void	pf_calc_s_e_values(int *matrix, uint32_t dim[2], uint32_t idx[3])
-{
-	matrix[idx[I_START]] = pf_calc_dist(dim, idx[I_START], idx[I_END]);
-	matrix[idx[I_END]] = pf_calc_dist(dim, idx[I_START], idx[I_END]);
-}
 
 static int	*pf_malloc_matrix(int **matrix, uint32_t dim[2])
 {
@@ -52,6 +46,6 @@ int	*pf_get_matrix(char *map, uint32_t dim[2], uint32_t idx[3])
 		}
 		++i;
 	}
-	pf_calc_s_e_values(matrix, dim, idx);
+	matrix[idx[I_START]] = pf_calc_dist(dim, idx[I_START], idx[I_END]);
 	return (matrix);
 }

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:17:03 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 19:22:00 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/17 18:53:54 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_cell_lst	*pf_lst_add_back(t_cell_lst *lst, uint32_t idx)
 	t_cell_lst	*back;
 	t_cell_lst	*p;
 
+	if (!lst)
+		return (pf_lst_new(idx));
 	back = pf_lst_new(idx);
 	if (!back)
 	{

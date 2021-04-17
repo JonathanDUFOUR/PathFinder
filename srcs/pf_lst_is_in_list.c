@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_calc_b_ngb.c                                    :+:      :+:    :+:   */
+/*   pf_lst_is_in_list.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/15 21:38:04 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/17 20:08:33 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/17 19:30:03 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/17 19:32:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinder.h"
 
-void	pf_calc_b_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-	t_cell_lst **options)
+bool	pf_lst_is_in_list(t_cell_lst *lst, uint32_t idx)
 {
-	int	s_dist;
-	int	e_dist;
-
-	s_dist = pf_calc_dist(dim, idx[I_START], idx[I_LOW] + dim[W]);
-	e_dist = pf_calc_dist(dim, idx[I_END], idx[I_LOW] + dim[W]);
-	matrix[idx[I_LOW] + dim[W]] = s_dist + e_dist;
-	*options = pf_lst_add_back(*options, idx[I_LOW] + dim[W]);
+	while (lst)
+	{
+		if (idx == lst->idx)
+			return (true);
+		lst = lst->next;
+	}
+	return (false);
 }
