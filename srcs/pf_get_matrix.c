@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:20:23 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 16:36:52 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 17:36:43 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	*pf_malloc_matrix(int **matrix, int dim[2])
 
 int	*pf_get_matrix(char *map, int dim[2], int idx[3])
 {
-	int			*matrix;
+	int	*matrix;
 	int	i;
 	int	size;
 
