@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 22:57:57 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 00:27:16 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:37:10 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinder.h"
 
-t_cell_lst	*pf_get_path(uint32_t *parents, uint32_t idx[3])
+t_cell_lst	*pf_get_path(int *parents, int idx[3])
 {
 	t_cell_lst	*path;
 

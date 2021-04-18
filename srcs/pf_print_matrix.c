@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:36:38 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 02:11:15 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:38:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ncurses.h>
 #include "pathfinder.h"
 
-static void	pf_print_cell(int cell, uint32_t i, uint32_t idx[3],
+static void	pf_print_cell(int cell, int i, int idx[3],
 	t_cell_lst *options, t_cell_lst *path)
 {
 	if (i == idx[I_START])
@@ -40,12 +40,12 @@ static void	pf_print_cell(int cell, uint32_t i, uint32_t idx[3],
 	attroff(COLOR_PAIR(PATH_COLOR));
 }
 
-void	pf_print_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
+void	pf_print_matrix(int *matrix, int dim[2], int idx[3],
 	t_cell_lst *options, t_cell_lst *path)
 {
-	uint32_t	i;
-	uint32_t	size;
-	int			cell;
+	int	i;
+	int	size;
+	int	cell;
 
 	erase();
 	i = 0;

@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:20:23 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/17 17:11:25 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:36:52 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "pathfinder.h"
 
-static int	*pf_malloc_matrix(int **matrix, uint32_t dim[2])
+static int	*pf_malloc_matrix(int **matrix, int dim[2])
 {
 	*matrix = malloc (dim[H] * dim[W] * sizeof(int));
 	if (!(*matrix))
@@ -21,11 +21,11 @@ static int	*pf_malloc_matrix(int **matrix, uint32_t dim[2])
 	return (*matrix);
 }
 
-int	*pf_get_matrix(char *map, uint32_t dim[2], uint32_t idx[3])
+int	*pf_get_matrix(char *map, int dim[2], int idx[3])
 {
 	int			*matrix;
-	uint32_t	i;
-	uint32_t	size;
+	int	i;
+	int	size;
 
 	if (!(pf_malloc_matrix(&matrix, dim)))
 		return (NULL);

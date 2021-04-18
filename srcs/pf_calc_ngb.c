@@ -6,18 +6,18 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 22:55:59 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/17 22:34:24 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:35:20 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ncurses.h>
 #include "pathfinder.h"
 
-void	pf_calc_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
-t_cell_lst **options, uint32_t *parents)
+void	pf_calc_ngb(int *matrix, int dim[2], int idx[3],
+t_cell_lst **options, int *parents)
 {
-	uint32_t	x;
-	uint32_t	y;
+	int	x;
+	int	y;
 
 	x = idx[I_LOW] / dim[W];
 	y = idx[I_LOW] % dim[W];

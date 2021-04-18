@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:19:45 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/15 19:48:38 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:36:09 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinder.h"
 
-int	pf_check_map(char *map, uint32_t dim[2])
+int	pf_check_map(char *map, int dim[2])
 {
 	register char	*p;
 

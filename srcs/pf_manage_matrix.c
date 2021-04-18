@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 22:25:49 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 02:11:03 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:46:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinder.h"
 
-int	pf_manage_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
-	uint32_t *parents)
+int	pf_manage_matrix(int *matrix, int dim[2], int idx[3],
+	int *parents)
 {
 	t_cell_lst	*options;
 	t_cell_lst	*path;

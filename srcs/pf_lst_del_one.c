@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 20:21:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 21:09:35 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:37:29 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_cell_lst	*pf_del_first(t_cell_lst *lst)
 	return (output);
 }
 
-t_cell_lst	*pf_lst_del_one(t_cell_lst *lst, uint32_t idx)
+t_cell_lst	*pf_lst_del_one(t_cell_lst *lst, int idx)
 {
 	t_cell_lst	*output;
 	t_cell_lst	*prev;

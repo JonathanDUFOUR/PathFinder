@@ -6,15 +6,15 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 21:59:37 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/16 22:00:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:36:23 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinder.h"
 
-uint32_t	pf_get_low_idx(int *matrix, t_cell_lst *options)
+int	pf_get_low_idx(int *matrix, t_cell_lst *options)
 {
-	uint32_t	l_idx;
+	int	l_idx;
 
 	if (options)
 	{

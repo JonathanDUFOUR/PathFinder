@@ -6,30 +6,24 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 19:36:02 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/15 20:38:40 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:34:32 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinder.h"
 
-int	pf_calc_dist(uint32_t dim[2], uint32_t idx1, uint32_t idx2)
+int	pf_calc_dist(int dim[2], int idx1, int idx2)
 {
-	uint32_t	x_dist;
-	uint32_t	y_dist;
-	uint32_t	a;
-	uint32_t	b;
+	int	x1;
+	int	x2;
+	int	y1;
+	int	y2;
+	int	dist;
 
-	a = idx1 % dim[W];
-	b = idx2 % dim[W];
-	if (a < b)
-		y_dist = b - a;
-	else
-		y_dist = a - b;
-	a = idx1 / dim[W];
-	b = idx2 / dim[W];
-	if (a < b)
-		x_dist = b - a;
-	else
-		x_dist = a - b;
-	return (x_dist + y_dist);
+	x1 = idx1 % dim[W];
+	x2 = idx2 % dim[W];
+	y1 = idx1 / dim[W];
+	y2 = idx2 / dim[W];
+	dist = SQ(x1 - x2) + SQ(y1 - y2);
+	return (dist);
 }

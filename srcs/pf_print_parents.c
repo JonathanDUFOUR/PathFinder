@@ -6,17 +6,17 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 22:18:26 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/17 22:23:18 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:38:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ncurses.h>
 #include "pathfinder.h"
 
-void	pf_print_parents(uint32_t *parents, uint32_t dim[2])
+void	pf_print_parents(int *parents, int dim[2])
 {
-	uint32_t	size;
-	uint32_t	i;
+	int	size;
+	int	i;
 
 	size = dim[H] * dim[W];
 	i = 0;
