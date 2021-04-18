@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 23:33:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 00:24:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 01:34:04 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,20 @@ int	pf_solve(char const *file)
 	uint32_t	*parents;
 	uint32_t	dim[2];
 	uint32_t	idx[3];
+	int			ret;
 
 	map = pf_get_map(file);
-	if (!map || pf_check_map(map, dim) != SUCCESS)
+	if (!map)
+		return (MALLOC_ERR_CODE);
+	if (pf_check_map(map, dim) != SUCCESS)
 		return (MAP_ERR_CODE);
-	pf_print_map(map);
-	pf_print_dim(dim);
-	pf_pause();
 	map = pf_str_rm_ws(map);
 	matrix = pf_get_matrix(map, dim, idx);
-	pf_print_matrix(matrix, dim, idx, NULL, NULL);
-	pf_pause();
 	parents = calloc(dim[H] * dim[W], sizeof(uint32_t));
 	if (!parents)
-		return (MAP_ERR_CODE);
-	pf_manage_matrix(matrix, dim, idx, parents);
+		return (MALLOC_ERR_CODE);
+	ret = pf_manage_matrix(matrix, dim, idx, parents);
 	free(map);
 	free(matrix);
-	return (SUCCESS);
+	return (ret);
 }

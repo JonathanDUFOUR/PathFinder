@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 00:19:54 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 01:32:05 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ enum	e_ret_codes
 	COLORS_ERR_CODE,
 	AC_ERR_CODE,
 	STRJOIN_ERR_CODE,
-	MAP_ERR_CODE
+	MAP_ERR_CODE,
+	MALLOC_ERR_CODE,
+	IMPOSSIBLE
 };
 
 enum	e_colors
@@ -80,6 +82,8 @@ struct	s_cell_lst
 int			pf_solve(char const *file);
 int			pf_check_map(char *map, uint32_t dim[2]);
 int			*pf_get_matrix(char *map, uint32_t dim[2], uint32_t idx[3]);
+int			pf_manage_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
+				uint32_t *parents);
 int			pf_calc_dist(uint32_t dim[2], uint32_t idx1, uint32_t idx2);
 char		*pf_get_map(char const *file);
 char		*pf_strjoin(char const *s1, char const *s2);
@@ -95,8 +99,6 @@ void		pf_print_new_map(char *map);
 void		pf_print_parents(uint32_t *parents, uint32_t dim[2]);
 void		pf_print_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
 				t_cell_lst *options, t_cell_lst *path);
-void		pf_manage_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
-				uint32_t *parents);
 void		pf_calc_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],
 				t_cell_lst **options, uint32_t *parents);
 void		pf_calc_corn_tl_ngb(int *matrix, uint32_t dim[2], uint32_t idx[3],

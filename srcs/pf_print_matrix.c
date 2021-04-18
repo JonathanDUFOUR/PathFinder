@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:36:38 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 00:23:43 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 02:11:15 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	pf_print_cell(int cell, uint32_t i, uint32_t idx[3],
 		attron(COLOR_PAIR(FIND_COLOR));
 	else
 		attron(COLOR_PAIR(PATH_COLOR));
-	printw("% *d", 3, cell);
+	printw("  ");
 	attroff(COLOR_PAIR(START_COLOR));
 	attroff(COLOR_PAIR(END_COLOR));
 	attroff(COLOR_PAIR(OBSTACLE_COLOR));
@@ -47,6 +47,7 @@ void	pf_print_matrix(int *matrix, uint32_t dim[2], uint32_t idx[3],
 	uint32_t	size;
 	int			cell;
 
+	erase();
 	i = 0;
 	size = dim[H] * dim[W];
 	while (i < size)
