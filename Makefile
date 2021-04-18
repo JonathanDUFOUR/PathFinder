@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 22:36:42 by jodufour          #+#    #+#              #
-#    Updated: 2021/04/18 00:25:27 by jodufour         ###   ########.fr        #
+#    Updated: 2021/04/18 19:02:45 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS	=	\
 			pf_strdup.c				\
 			pf_strchr.c				\
 			pf_strjoin.c			\
-			pf_err_msg.c			\
+			pf_ret_msg.c			\
 			pf_get_map.c			\
 			pf_lst_new.c			\
 			pf_get_path.c			\
@@ -37,6 +37,7 @@ SRCS	=	\
 			pf_calc_ngb.c			\
 			pf_calc_dist.c			\
 			pf_str_rm_ws.c			\
+			pf_wait_next.c			\
 			pf_wait_quit.c			\
 			pf_print_map.c			\
 			pf_print_dim.c			\
@@ -46,6 +47,7 @@ SRCS	=	\
 			pf_calc_l_ngb.c			\
 			pf_calc_r_ngb.c			\
 			pf_get_matrix.c			\
+			pf_multi_free.c			\
 			pf_get_low_idx.c		\
 			pf_lst_del_one.c		\
 			pf_lst_add_back.c		\

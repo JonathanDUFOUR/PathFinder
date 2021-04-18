@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_calc_t_ngb.c                                    :+:      :+:    :+:   */
+/*   pf_multi_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/15 21:32:53 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 19:04:54 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/18 18:39:00 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/18 18:50:31 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pathfinder.h"
+#include <stdarg.h>
+#include <stdlib.h>
+#include <sys/types.h>
 
-void	pf_calc_t_ngb(int **matrix, int dim[2], int idx[3],
-	t_cell_lst **options)
+int	pf_multi_free(int ret, size_t n, ...)
 {
-	int	s_dist;
-	int	e_dist;
+	void	*dent;
+	va_list	va;
+	size_t	i;
 
-	matrix[PARENTS][idx[I_LOW] - dim[W]] = idx[I_LOW];
-	s_dist = matrix[DIST][I_LOW] + 1;
-	e_dist = pf_calc_dist(dim, idx[I_END], idx[I_LOW] - dim[W]);
-	matrix[DIST][idx[I_LOW] - dim[W]] = s_dist + e_dist;
-	*options = pf_lst_add_back(*options, idx[I_LOW] - dim[W]);
+	va_start(va, n);
+	i = 0;
+	while (i++ < n)
+	{
+		dent = va_arg(va, void *);
+		free(dent);
+	}
+	va_end(va);
+	return (ret);
 }

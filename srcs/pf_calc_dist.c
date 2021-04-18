@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 19:36:02 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 16:34:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 18:32:33 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	pf_calc_dist(int dim[2], int idx1, int idx2)
 	x2 = idx2 % dim[W];
 	y1 = idx1 / dim[W];
 	y2 = idx2 / dim[W];
-	dist = SQ(x1 - x2) + SQ(y1 - y2);
+	dist = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
 	return (dist);
 }

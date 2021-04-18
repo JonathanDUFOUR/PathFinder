@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:36:38 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 16:38:42 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/18 18:24:52 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "pathfinder.h"
 
 static void	pf_print_cell(int cell, int i, int idx[3],
-	t_cell_lst *options, t_cell_lst *path)
+	t_cell_lst **lst)
 {
 	if (i == idx[I_START])
 		attron(COLOR_PAIR(START_COLOR));
@@ -24,9 +24,9 @@ static void	pf_print_cell(int cell, int i, int idx[3],
 		attron(COLOR_PAIR(OBSTACLE_COLOR));
 	else if (!cell)
 		attron(COLOR_PAIR(EMPTY_COLOR));
-	else if (pf_lst_is_in_list(options, i))
+	else if (pf_lst_is_in_list(lst[OPTIONS], i))
 		attron(COLOR_PAIR(OPTIONS_COLOR));
-	else if (pf_lst_is_in_list(path, i))
+	else if (pf_lst_is_in_list(lst[PATH], i))
 		attron(COLOR_PAIR(FIND_COLOR));
 	else
 		attron(COLOR_PAIR(PATH_COLOR));
@@ -41,7 +41,7 @@ static void	pf_print_cell(int cell, int i, int idx[3],
 }
 
 void	pf_print_matrix(int *matrix, int dim[2], int idx[3],
-	t_cell_lst *options, t_cell_lst *path)
+	t_cell_lst **lst)
 {
 	int	i;
 	int	size;
@@ -53,7 +53,7 @@ void	pf_print_matrix(int *matrix, int dim[2], int idx[3],
 	while (i < size)
 	{
 		cell = matrix[i];
-		pf_print_cell(cell, i, idx, options, path);
+		pf_print_cell(cell, i, idx, lst);
 		if (!(++i % dim[W]))
 			printw("\n");
 	}

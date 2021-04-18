@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_calc_t_ngb.c                                    :+:      :+:    :+:   */
+/*   pf_wait_next.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/15 21:32:53 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 19:04:54 by jodufour         ###   ########.fr       */
+/*   Created: 2021/04/18 19:01:28 by jodufour          #+#    #+#             */
+/*   Updated: 2021/04/18 19:02:29 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pathfinder.h"
+#include <ncurses.h>
 
-void	pf_calc_t_ngb(int **matrix, int dim[2], int idx[3],
-	t_cell_lst **options)
+void	pf_wait_next(void)
 {
-	int	s_dist;
-	int	e_dist;
+	int	ch;
 
-	matrix[PARENTS][idx[I_LOW] - dim[W]] = idx[I_LOW];
-	s_dist = matrix[DIST][I_LOW] + 1;
-	e_dist = pf_calc_dist(dim, idx[I_END], idx[I_LOW] - dim[W]);
-	matrix[DIST][idx[I_LOW] - dim[W]] = s_dist + e_dist;
-	*options = pf_lst_add_back(*options, idx[I_LOW] - dim[W]);
+	printw("Press N to solve the Next map\n");
+	while (1)
+	{
+		ch = getch();
+		if (ch == 'n' || ch == 'N')
+			break ;
+	}
+	refresh();
 }
