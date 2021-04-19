@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:48:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 19:05:42 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/19 11:15:44 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include <sys/types.h>
 # include <stdint.h>
 # include <stdbool.h>
-
-/* Remove it when all bugs are fixed */
-# include <ncurses.h>
 
 # define MAP_CHARS "SEX "
 # define BUFF_SIZE 4096

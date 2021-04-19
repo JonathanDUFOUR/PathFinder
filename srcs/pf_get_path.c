@@ -6,10 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 22:57:57 by jodufour          #+#    #+#             */
-/*   Updated: 2021/04/18 16:37:10 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/04/19 11:16:32 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "pathfinder.h"
 
 t_cell_lst	*pf_get_path(int *parents, int idx[3])
